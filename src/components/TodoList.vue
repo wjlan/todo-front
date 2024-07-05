@@ -1,8 +1,28 @@
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import axios from 'axios'
+import { ElMessage } from 'element-plus'
+
+const axiosInstance = axios.create({
+  baseURL: 'http://localhost:8000',
+  timeout: 5000
+})
 
 const newTodo = ref('')
 const todos = ref([])
+
+const fetchTodos = async () => {
+  try {
+    const response = await axiosInstance.get('/api/todos')
+    todos.value = response.data
+  } catch (error) {
+    ElMessage.error('Failed in Fetching Todo List')
+    console.error(error)
+  }
+}
+
+
+onMounted(fetchTodos)
 </script>
 
 <template>
