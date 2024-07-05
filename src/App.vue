@@ -1,5 +1,12 @@
+<script setup>
+import TodoList from "./components/TodoList.vue";
+</script>
 <template>
   <div>
-    Hello world;
+    <el-container>
+      <el-main>
+        <TodoList />
+      </el-main>
+    </el-container>
   </div>
 </template>
