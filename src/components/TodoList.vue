@@ -29,6 +29,7 @@
         </el-card>
 
       </div>
+      <div v-else class="no-todos"> Currently No Todo Items </div>
     </el-card>
   </div>
 
