@@ -45,25 +45,39 @@ const todos = ref([])
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background: #d3d7da;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  
 }
 
 .todo-card {
   width: 100%;
   max-width: 500px;
   border-radius: 10px;
-  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: #ffffff;
 }
 
 .todo-header {
   font-size: 24px;
   font-weight: bold;
   text-align: center;
+  padding: 16px;
+  background-color: #409eff;
+  color: white;
   border-radius: 8px 8px 0 0;
+  margin: 0;
 }
 
 .todo-input {
   display: flex;
   align-items: center;
+  gap: 10px;
+  padding: 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #a2a5a8;
 }
 
 .el-input {
@@ -72,19 +86,50 @@ const todos = ref([])
 
 .todo-list {
   padding: 20px;
-  background-color: white;
+  background-color: #fff;
 }
 
 .todo-item {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border: 1px solid #4f4b58;
   border-radius:8px;
+  background: #a59ab1;
+  transition:background 0.3s, transform 0.3s;
 }
 
+.todo-item:hover {
+  background: cadetblue;
+  transform: translateY(-2px);
+}
 
+.todo-item-title {
+  font-weight: bold;
+  flex: 1;
+  margin-right: 20px;
+  word-wrap: break-word;
+  width: 160px;
+}
 
+.completed .todo-item-title {
+  text-decoration: line-through;
+  color: dimgray;
+}
 
+.todo-item-actions{
+  display: flex;
+  align-items: center;
+}
+
+.no-todos {
+  text-align: center;
+  padding: 20px;
+  color: dimgray;
+  font-size: 18px;
+}
 
 
 </style>
