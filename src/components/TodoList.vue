@@ -1,10 +1,13 @@
 <script setup>
+import { ref } from 'vue'
 
+const newTodo = ref('')
+const todos = ref([])
 </script>
 
 <template>
   <div class="todo-app">
-    <el-card>
+    <el-card class="todo-card">
       <template #header>
         <div class="todo-header">
           To Do List
