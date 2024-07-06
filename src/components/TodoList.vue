@@ -47,8 +47,12 @@ const toggleComplete = async (todo) => {
   } catch (error) {
     ElMessage.error('Failed to Update Todo Item')
     console.error(error)
+    todo.completed = !todo.complete //Revert the change if the request fails
   }
 }
+
+
+
 
 onMounted(fetchTodos)
 </script>
