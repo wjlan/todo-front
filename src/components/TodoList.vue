@@ -51,7 +51,16 @@ const toggleComplete = async (todo) => {
   }
 }
 
-
+const deleteTodo = async (todo) =>{
+  try {
+    await axiosInstance.delete(`/api/todos/${todo.id}`)
+    await fetchTodos()
+    ElMessage.success('Todo Item Deleted Successfully')
+  } catch (error) {
+    ElMessage.error('Failed to Delete Todo Item')
+    console.error(error)
+  }
+}
 
 
 onMounted(fetchTodos)
