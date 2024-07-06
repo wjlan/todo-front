@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue'
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
+import { executeOnFunctionsWithoutReturn } from 'eslint-plugin-vue/lib/utils/index.js'
 
 const axiosInstance = axios.create({
   baseURL: 'http://localhost:8000',
@@ -21,6 +22,21 @@ const fetchTodos = async () => {
   }
 }
 
+const addTodo = async () => {
+  if (newTodo.value.trim() === '') return
+  try {
+    const response = await axiosInstance.post('/api/todos', {
+      title: newTodo.value,
+      completed: false
+    })
+    todos.value.puush(response.data)
+    newTodo.value = ''
+    ElMessage.success('Todo Item Added Successfully')
+  } catch (error) {
+    ElMessage.error('Failed to Add Todo')
+    console.error(error)
+  }
+}
 
 onMounted(fetchTodos)
 </script>
