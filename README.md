@@ -1,14 +1,17 @@
-# todo-front
+# To Do List
 
-This template should help get you started developing with Vue 3 in Vite.
+<img width="967" alt="Screen Shot 2024-07-05 at 8 48 55 PM" src="https://github.com/wjlan/todo-front/assets/59032164/0e470e54-8304-4799-8e2c-de24b7e9872c">
+
+
+This full-stack application allows users to manage a Todo List with essential functionalities such as adding, updating completion status, and deleting tasks. The frontend is developed using Vue 3, leveraging Vite for fast development and performance. It integrates seamlessly with the backend API provided by the [todoapp](https://github.com/wjlan/todoapp) repository, ensuring robust data management and synchronization between the frontend and backend components.
+
+- Backend: Java / Spring Boot, Spring Data JPA, H2 Database
+- Frontend: Vue.js, Element-plus
 
 ## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+IntelliJ + WebStorm
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
@@ -28,8 +31,3 @@ npm run dev
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
