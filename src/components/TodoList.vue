@@ -29,11 +29,23 @@ const addTodo = async () => {
       title: newTodo.value,
       completed: false
     })
-    todos.value.puush(response.data)
+    todos.value.push(response.data)
     newTodo.value = ''
     ElMessage.success('Todo Item Added Successfully')
   } catch (error) {
-    ElMessage.error('Failed to Add Todo')
+    ElMessage.error('Failed to Add Todo Item')
+    console.error(error)
+  }
+}
+
+const toggleComplete = async (todo) => {
+  try {
+    todo.completed = !todo.completed
+    await axiosInstance.put(`/api/todos/${todo.id})`, todo)
+    await fetchTodos()
+    ElMessage.success('Todo Item Updated Successfully')
+  } catch (error) {
+    ElMessage.error('Failed to Update Todo Item')
     console.error(error)
   }
 }
