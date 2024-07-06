@@ -1,8 +1,8 @@
 <script setup>
-import TodoList from "./components/TodoList.vue";
+import TodoList from '@/components/TodoList.vue'
 </script>
 <template>
-  <div>
+  <div id="app">
     <el-container>
       <el-main>
         <TodoList />

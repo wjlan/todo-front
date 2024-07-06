@@ -2,10 +2,9 @@
 import { onMounted, ref } from 'vue'
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
-import { executeOnFunctionsWithoutReturn } from 'eslint-plugin-vue/lib/utils/index.js'
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:8000',
+  baseURL: 'http://localhost:8080',
   timeout: 5000
 })
 
@@ -62,7 +61,6 @@ const deleteTodo = async (todo) =>{
   }
 }
 
-
 onMounted(fetchTodos)
 </script>
 
@@ -81,7 +79,7 @@ onMounted(fetchTodos)
       <div v-if="todos.length" class="todo-list">
         <el-card v-for="todo in todos" :key="todo.id" class="todo-item">
           <div class="todo-item-actions">
-            <div class="todo-item-title"> {{todo.title}}</div>
+            <div class="todo-item-title"> {{ todo.title }}</div>
             <el-button class="todo-button" @click="toggleComplete(todo)"
                         :type="todo.completed ? 'success': 'info'">
               {{todo.completed ? 'Completed': 'Not Complete'}}
@@ -106,20 +104,21 @@ onMounted(fetchTodos)
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #d3d7da;
+  background-color: #f0f2f5;
   padding: 20px;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+  Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 .todo-card {
   width: 100%;
   max-width: 500px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
 }
+
 
 .todo-header {
   font-size: 24px;
@@ -127,7 +126,7 @@ onMounted(fetchTodos)
   text-align: center;
   padding: 16px;
   background-color: #409eff;
-  color: white;
+  color: #fff;
   border-radius: 8px 8px 0 0;
   margin: 0;
 }
@@ -138,7 +137,7 @@ onMounted(fetchTodos)
   gap: 10px;
   padding: 20px;
   background-color: #fff;
-  border-bottom: 1px solid #a2a5a8;
+  border-bottom: 1px solid #ebeef5;
 }
 
 .el-input {
@@ -156,14 +155,14 @@ onMounted(fetchTodos)
   align-items: center;
   padding: 10px 15px;
   margin-bottom: 10px;
-  border: 1px solid #4f4b58;
-  border-radius:8px;
-  background: #a59ab1;
-  transition:background 0.3s, transform 0.3s;
+  border: 1px solid #ebeef5;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .todo-item:hover {
-  background: cadetblue;
+  background-color: #e6f7ff;
   transform: translateY(-2px);
 }
 
@@ -177,10 +176,10 @@ onMounted(fetchTodos)
 
 .completed .todo-item-title {
   text-decoration: line-through;
-  color: dimgray;
+  color: #909399;
 }
 
-.todo-item-actions{
+.todo-item-actions {
   display: flex;
   align-items: center;
 }
@@ -188,7 +187,7 @@ onMounted(fetchTodos)
 .no-todos {
   text-align: center;
   padding: 20px;
-  color: dimgray;
+  color: #909399;
   font-size: 18px;
 }
 
